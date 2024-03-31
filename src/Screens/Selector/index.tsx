@@ -11,6 +11,8 @@ import ReactIf from "@/components/ReactIf";
 import Timer from "../Timer";
 import { twMerge } from "tailwind-merge";
 import useFullScreen from "@/hooks/useFullScreen";
+import alarm from "@/assets/audio/alarm.mp3";
+import alarm2 from "@/assets/audio/alarm.ogg";
 
 function Selector() {
   const [time, setTime] = useState({
@@ -28,7 +30,7 @@ function Selector() {
     setCountdown,
     started,
     stopped,
-    // timeUp,
+    timeUp,
     startTimer,
     toggleTimer,
     stopTimer,
@@ -77,6 +79,12 @@ function Selector() {
       onDoubleClick={(e) => (stopped ? null : toggleFullScreen(e))}
       className="flex flex-col justify-center items-center gap-10 h-svh w-svw bg-white dark:bg-black select-none"
     >
+      {timeUp && (
+        <audio autoPlay muted={false} loop>
+          <source src={alarm} type="audio/mpeg" />
+          <source src={alarm2} type="audio/ogg" />
+        </audio>
+      )}
       <ReactIf
         condition={stopped}
         component={

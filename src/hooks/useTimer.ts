@@ -24,6 +24,9 @@ const useTimer = (input: number) => {
   useEffect(() => {
     if (countdown === 0) {
       setTimeUp(true);
+      setTimeout(() => {
+        setTimeUp(false);
+      }, 4000);
       setStarted(false);
     } else {
       setTimeUp(false);
