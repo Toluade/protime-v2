@@ -26,22 +26,16 @@ const Timer = ({
   return (
     <div
       className={twMerge(
-        "flex items-center select-none xs:text-[5vw] sm:text-[15vw] md:text-[19vw] lg:text-[21vw] xl:text-[24vw]",
+        "flex items-center select-none timer-font-size",
         containerClass
       )}
     >
-      <span id="hour" className="timer__item">
-        {hours}
-      </span>
-      <span className="column timer__item">:</span>
-      <span id="min" className="timer__item">
-        {minutes}
-      </span>
+      <p id="hour">{hours}</p>
+      <p className="column timer__item">:</p>
+      <p id="min">{minutes}</p>
 
-      <span className="column timer__item">:</span>
-      <span id="sec" className="timer__item">
-        {seconds}
-      </span>
+      <p className="column timer__item">:</p>
+      <p id="sec">{seconds}</p>
     </div>
   );
 };

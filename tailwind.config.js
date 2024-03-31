@@ -24,6 +24,7 @@ module.exports = {
         md: "768px",
         lg: "976px",
         xl: "1440px",
+        tall: { raw: "(min-height: 300px)" },
       },
       colors: {},
       keyframes: {

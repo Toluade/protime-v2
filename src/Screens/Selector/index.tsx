@@ -10,6 +10,7 @@ import useTimer from "@/hooks/useTimer";
 import ReactIf from "@/components/ReactIf";
 import Timer from "../Timer";
 import { twMerge } from "tailwind-merge";
+import useFullScreen from "@/hooks/useFullScreen";
 
 function Selector() {
   const [time, setTime] = useState({
@@ -18,6 +19,8 @@ function Selector() {
     s: 0,
   });
   const [milliseconds, setMilliseconds] = useState(0);
+
+  const { toggleFullScreen } = useFullScreen();
 
   const {
     timeObj,
@@ -62,7 +65,11 @@ function Selector() {
 
   // console.log({ milliseconds, countdown });
   return (
-    <div className="flex flex-col justify-center items-center gap-10 h-svh">
+    <div
+      id="container"
+      onDoubleClick={(e) => (stopped ? null : toggleFullScreen(e))}
+      className="flex flex-col justify-center items-center gap-10 h-svh w-svw bg-white dark:bg-black"
+    >
       <ReactIf
         condition={stopped}
         component={
@@ -113,7 +120,7 @@ function Selector() {
         }
       />
 
-      <div className="flex w-full justify-around scale-75 fixed bottom-3">
+      <div className="flex w-full justify-around scale-50 fixed bottom-3  tall:scale-100">
         <button
           disabled={stopped}
           onClick={stopTimer}

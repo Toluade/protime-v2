@@ -47,6 +47,9 @@
   .pause-btn {
     @apply border-none outline-none text-amber-300 bg-yellow-900 disabled:opacity-60 disabled:cursor-not-allowed;
   }
+  .timer-font-size {
+    @apply text-[25vw] sm:text-[27vw] md:text-[29vw] lg:text-[31vw] xl:text-[33vw];
+  }
 }
 
 @font-face {
