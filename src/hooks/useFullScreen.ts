@@ -51,14 +51,42 @@ function useFullScreen() {
     }
   };
 
-  const toggleFullScreen = (e: any) => {
-    e.stopPropagation();
+  const toggleFullScreen = (e: any = null) => {
+    if (e !== null) {
+      e.stopPropagation();
+    }
     if (isFullScreen) {
       exitFullscreen();
     } else {
       fullScreenMode();
     }
   };
+
+  function isScreenLockSupported() {
+    return "wakeLock" in navigator;
+  }
+
+  async function getScreenLock() {
+    if (isScreenLockSupported()) {
+      let screenLock;
+      try {
+        screenLock = await navigator.wakeLock.request("screen");
+      } catch (err: any) {
+        // console.log(err.name, err.message);
+      }
+      return screenLock;
+    }
+  }
+
+  async function release() {
+    let screenLock = await getScreenLock();
+    if (typeof screenLock !== "undefined" && screenLock != null) {
+      screenLock.release().then(() => {
+        // console.log("Lock released 🎈");
+        screenLock = undefined;
+      });
+    }
+  }
 
   useEffect(() => {
     window.addEventListener("resize", (_evt) => {
@@ -80,8 +108,19 @@ function useFullScreen() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFullScreen) {
+      getScreenLock();
+    } else {
+      release();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFullScreen]);
+
   return {
     toggleFullScreen,
+    isFullScreen,
+    exitFullscreen,
   };
 }
 

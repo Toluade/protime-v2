@@ -20,7 +20,7 @@ function Selector() {
   });
   const [milliseconds, setMilliseconds] = useState(0);
 
-  const { toggleFullScreen } = useFullScreen();
+  const { toggleFullScreen, isFullScreen, exitFullscreen } = useFullScreen();
 
   const {
     timeObj,
@@ -63,17 +63,24 @@ function Selector() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time]);
 
+  useEffect(() => {
+    if (isFullScreen && stopped) {
+      exitFullscreen();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFullScreen, stopped]);
+
   // console.log({ milliseconds, countdown });
   return (
     <div
       id="container"
       onDoubleClick={(e) => (stopped ? null : toggleFullScreen(e))}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw bg-white dark:bg-black"
+      className="flex flex-col justify-center items-center gap-10 h-svh w-svw bg-white dark:bg-black select-none"
     >
       <ReactIf
         condition={stopped}
         component={
-          <div className="flex items-center justify-center gap-5 overflow-hidden xs:gap-2 text-[8vw] sm:text-[10vw] md:text-[10vw] lg:text-[12vw] xl:text-[15vw]">
+          <div className="flex items-center justify-center gap-5 overflow-hidden xs:gap-2 text-[12vw]  xl:text-[15vw]">
             <div className="flex items-center gap-1">
               <NumericSelector
                 value={time.h?.toString()}
@@ -120,7 +127,7 @@ function Selector() {
         }
       />
 
-      <div className="flex w-full justify-around scale-50 fixed bottom-3  tall:scale-100">
+      <div className="flex w-full justify-around scale-50 fixed bottom-2  tall:scale-100">
         <button
           disabled={stopped}
           onClick={stopTimer}
