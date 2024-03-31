@@ -41,7 +41,7 @@
   }
 
   .start-btn {
-    @apply border-none outline-none text-green-200 bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply border-none outline-none text-green-300 bg-green-900 disabled:opacity-60 disabled:cursor-not-allowed;
   }
 
   .pause-btn {

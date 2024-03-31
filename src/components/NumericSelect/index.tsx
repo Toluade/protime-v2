@@ -4,9 +4,10 @@ import { ClassNameValue, twMerge } from "tailwind-merge";
 // import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 
 type SelectorProps = Select.SelectProps & {
-  options: Array<number>;
+  options: Array<string>;
   placeholder?: string;
   triggerClass?: ClassNameValue;
+  value: string | number;
 };
 
 const NumericSelector = (props: SelectorProps) => (
@@ -60,7 +61,7 @@ const NumericSelector = (props: SelectorProps) => (
           <Select.Group className="">
             {props.options?.map((number, idx) => (
               <SelectItem key={idx} value={number}>
-                {number < 10 ? "0" + number : number}
+                {parseInt(number) < 10 ? "0" + number : number}
               </SelectItem>
             ))}
           </Select.Group>

@@ -32,10 +32,10 @@ function Selector() {
     // resetTimer,
   } = useTimer(milliseconds);
 
-  const handleChange = (value: number, key: keyof typeof time) => {
+  const handleChange = (value: string, key: keyof typeof time) => {
     setTime((val) => ({
       ...val,
-      [key]: value,
+      [key]: parseInt(value),
     }));
   };
   const hours = listOfNumbers(23);
@@ -69,8 +69,8 @@ function Selector() {
           <div className="flex items-center justify-center gap-5 overflow-hidden xs:gap-2 text-[8vw] sm:text-[10vw] md:text-[10vw] lg:text-[12vw] xl:text-[15vw]">
             <div className="flex items-center gap-1">
               <NumericSelector
-                value={time.h}
-                onValueChange={(v) => handleChange(Number(v), "h")}
+                value={time.h?.toString()}
+                onValueChange={(v) => handleChange(v, "h")}
                 triggerClass="number"
                 options={hours}
                 placeholder="0"
@@ -81,8 +81,8 @@ function Selector() {
             </div>
             <div className="flex items-center gap-1">
               <NumericSelector
-                value={time.m}
-                onValueChange={(v) => handleChange(Number(v), "m")}
+                value={time.m?.toString()}
+                onValueChange={(v) => handleChange(v, "m")}
                 triggerClass="number"
                 options={mins}
                 placeholder="00"
@@ -91,8 +91,8 @@ function Selector() {
             </div>
             <div className="flex items-center gap-1">
               <NumericSelector
-                value={time.s}
-                onValueChange={(v) => handleChange(Number(v), "s")}
+                value={time.s?.toString()}
+                onValueChange={(v) => handleChange(v, "s")}
                 triggerClass="number"
                 options={mins}
                 placeholder="00"
