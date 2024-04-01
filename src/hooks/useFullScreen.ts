@@ -19,7 +19,7 @@ declare global {
   }
 }
 
-function useFullScreen() {
+function useFullScreen(containerId: string) {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   function enterFullScreen(element: HTMLElement) {
@@ -45,7 +45,7 @@ function useFullScreen() {
   }
 
   const fullScreenMode = () => {
-    const container = document.getElementById("container");
+    const container = document.getElementById(containerId);
     if (container !== null) {
       enterFullScreen(container);
     }
