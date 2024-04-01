@@ -4,6 +4,7 @@ import ROUTES from "@/routes";
 import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import packageFile from "package.json";
+import { useCurrentPath } from "@/hooks/useCurrentPath";
 
 type Props = {
   children: ReactNode;
@@ -11,6 +12,9 @@ type Props = {
 
 const Layout = (props: Props) => {
   const { goto } = useNavigation();
+  const { pathname } = useCurrentPath();
+  const currentTitle = ROUTES?.filter((item) => item.path === pathname)[0]
+    ?.title;
   const options = ROUTES?.filter((item) => item.title !== "Home")?.map(
     (item) => ({
       label: item.title,
@@ -25,7 +29,7 @@ const Layout = (props: Props) => {
     <div className={twMerge("h-svh w-svw flex justify-center items-center")}>
       <SelectComp
         triggerClass="absolute top-3 left-2"
-        placeholder="Timer"
+        placeholder={currentTitle}
         options={options}
         onValueChange={handleChange}
       />
