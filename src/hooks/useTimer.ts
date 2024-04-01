@@ -6,6 +6,8 @@ const useTimer = (input: number) => {
   const [stopped, setStopped] = useState(true);
   const [timeUp, setTimeUp] = useState(false);
 
+  const [firstLoad, setFirstLoad] = useState(true);
+
   const startTimer = () => {
     setStarted(true);
     setStopped(false);
@@ -23,14 +25,20 @@ const useTimer = (input: number) => {
 
   useEffect(() => {
     if (countdown === 0) {
-      setTimeUp(true);
-      setTimeout(() => {
-        setTimeUp(false);
-      }, 4000);
       setStarted(false);
+      if (!firstLoad) {
+        setTimeUp(true);
+        setTimeout(() => {
+          setTimeUp(false);
+        }, 4000);
+      }
     } else {
       setTimeUp(false);
     }
+  }, [countdown, firstLoad]);
+
+  useEffect(() => {
+    if (countdown > 0) setFirstLoad(false);
   }, [countdown]);
 
   return {
