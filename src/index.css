@@ -41,14 +41,20 @@
   }
 
   .start-btn {
-    @apply border-none outline-none text-green-900 bg-green-500 dark:text-green-400 dark:bg-green-900 dark:bg-opacity-60 disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply border-none outline-none text-green-900 bg-green-200 dark:text-green-400 dark:bg-green-900 dark:bg-opacity-60 disabled:opacity-60 disabled:cursor-not-allowed;
   }
 
   .pause-btn {
     @apply border-none outline-none text-amber-900 bg-amber-300 dark:text-amber-300 dark:bg-yellow-700 dark:bg-opacity-50 disabled:opacity-60 disabled:cursor-not-allowed;
   }
+  .stop-btn {
+    @apply border-none outline-none text-red-900 bg-red-300 dark:text-red-300 dark:bg-red-700 dark:bg-opacity-30 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
   .timer-font-size {
     @apply text-[25vw] sm:text-[27vw] md:text-[29vw] lg:text-[31vw] xl:text-[33vw];
+  }
+  .clock-font-size {
+    @apply text-[15vw] sm:text-[17vw] md:text-[20vw] lg:text-[23vw] xl:text-[25vw];
   }
 }
 
