@@ -1,6 +1,6 @@
 import StopwatchTime from "@/components/StopwatchTime";
-import useFullScreen from "@/hooks/useFullScreen";
 import useStopwatch from "@/hooks/useStopwatch";
+import useFullScreen from "@toluade/use-fullscreen";
 import { twMerge } from "tailwind-merge";
 
 const Stopwatch = () => {

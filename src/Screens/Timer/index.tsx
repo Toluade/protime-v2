@@ -10,9 +10,9 @@ import useTimer from "@/hooks/useTimer";
 import ReactIf from "@/components/ReactIf";
 import Time from "../../components/Time";
 import { twMerge } from "tailwind-merge";
-import useFullScreen from "@/hooks/useFullScreen";
 import alarm from "@/assets/audio/alarm.mp3";
 import alarm2 from "@/assets/audio/alarm.ogg";
+import useFullScreen from "@toluade/use-fullscreen";
 
 function Selector() {
   const [time, setTime] = useState({

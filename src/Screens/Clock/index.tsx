@@ -1,5 +1,5 @@
 import useClock from "@/hooks/useClock";
-import useFullScreen from "@/hooks/useFullScreen";
+import useFullScreen from "@toluade/use-fullscreen";
 
 const Clock = () => {
   const { toggleFullScreen } = useFullScreen("clock-container");
