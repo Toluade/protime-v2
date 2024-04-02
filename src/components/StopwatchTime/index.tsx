@@ -38,8 +38,10 @@ const StopwatchTime = ({
       <p className="column timer__item">:</p>
       <p id="sec">{seconds}</p>
 
-      <p className="column timer__item">.</p>
-      <p id="sec">{milliseconds}</p>
+      <p className="text-[50%] -translate-y-[30%] self-end">.</p>
+      <p id="sec" className="text-[50%] -translate-y-[30%] self-end">
+        {milliseconds}
+      </p>
     </div>
   );
 };
