@@ -12,7 +12,7 @@ const Stopwatch = () => {
     <div
       id="stopwatch-container"
       onDoubleClick={(e) => toggleFullScreen(e)}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw bg-white dark:bg-black select-none"
+      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
     >
       <StopwatchTime
         milliseconds={timeObj.hu}

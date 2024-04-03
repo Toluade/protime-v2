@@ -27,14 +27,20 @@ const Layout = (props: Props) => {
   };
   return (
     <div className={twMerge("h-svh w-svw flex justify-center items-center")}>
+      <div className="h-full w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">
+        {/* Radial gradient for the container to give a faded look */}
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        {props.children}
+      </div>
+
       <SelectComp
-        triggerClass="absolute top-3 left-2"
+        triggerClass="absolute top-3 left-2 text-[10px] sm:text-sm"
         placeholder={currentTitle}
         options={options}
         onValueChange={handleChange}
       />
-      {props.children}
-      <p className="absolute bottom-3 right-2 text-neutral-600 text-sm">
+
+      <p className="absolute bottom-3 right-2 text-neutral-600 text-[10px] sm:text-sm">
         v{packageFile.version}
       </p>
     </div>

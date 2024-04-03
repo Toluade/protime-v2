@@ -27,6 +27,7 @@ const Time = ({
     <div
       className={twMerge(
         "flex items-center select-none timer-font-size",
+        "[&>*]:bg-clip-text [&>*]:text-transparent [&>*]:bg-gradient-to-b [&>*]:from-neutral-200 [&>*]:to-neutral-500",
         containerClass
       )}
     >

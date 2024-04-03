@@ -76,7 +76,7 @@ function Selector() {
     <div
       id="timer-container"
       onDoubleClick={(e) => (stopped ? null : toggleFullScreen(e))}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw bg-white dark:bg-black select-none"
+      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
     >
       {timeUp && (
         <audio autoPlay muted={false} loop>
