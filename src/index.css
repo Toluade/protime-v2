@@ -56,6 +56,13 @@
   .clock-font-size {
     @apply text-[15vw] sm:text-[17vw] md:text-[20vw] lg:text-[23vw] xl:text-[25vw];
   }
+
+  .dot-bg {
+    @apply dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center;
+  }
+  .neutral-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500;
+  }
 }
 
 @font-face {

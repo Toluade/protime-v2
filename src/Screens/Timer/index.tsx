@@ -13,6 +13,7 @@ import { twMerge } from "tailwind-merge";
 import alarm from "@/assets/audio/alarm.mp3";
 import alarm2 from "@/assets/audio/alarm.ogg";
 import useFullScreen from "@toluade/use-fullscreen";
+import RadialGradient from "@/components/RadialGradient";
 
 function Selector() {
   const [time, setTime] = useState({
@@ -76,8 +77,11 @@ function Selector() {
     <div
       id="timer-container"
       onDoubleClick={(e) => (stopped ? null : toggleFullScreen(e))}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
+      className={twMerge(
+        "flex flex-col justify-center items-center gap-10 h-svh w-svw select-none dot-bg"
+      )}
     >
+      <RadialGradient />
       {timeUp && (
         <audio autoPlay muted={false} loop>
           <source src={alarm} type="audio/mpeg" />
@@ -134,7 +138,7 @@ function Selector() {
         }
       />
 
-      <div className="flex w-full justify-around scale-50 fixed bottom-2  tall:scale-100">
+      <div className="flex w-full justify-around scale-50 fixed bottom-4  tall:scale-100">
         <button
           disabled={stopped}
           onClick={stopTimer}

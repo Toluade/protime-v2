@@ -1,5 +1,7 @@
+import RadialGradient from "@/components/RadialGradient";
 import useClock from "@/hooks/useClock";
 import useFullScreen from "@toluade/use-fullscreen";
+import { twMerge } from "tailwind-merge";
 
 const Clock = () => {
   const { toggleFullScreen } = useFullScreen("clock-container");
@@ -8,11 +10,13 @@ const Clock = () => {
     <div
       id="clock-container"
       onDoubleClick={(e) => toggleFullScreen(e)}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none clock-font-size"
+      className={twMerge(
+        "flex flex-col justify-center items-center gap-10 h-svh w-svw select-none clock-font-size",
+        "dot-bg"
+      )}
     >
-      <p className="number bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500">
-        {time}
-      </p>
+      <RadialGradient />
+      <p className="number neutral-gradient">{time}</p>
     </div>
   );
 };

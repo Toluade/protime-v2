@@ -1,3 +1,4 @@
+import RadialGradient from "@/components/RadialGradient";
 import StopwatchTime from "@/components/StopwatchTime";
 import useStopwatch from "@/hooks/useStopwatch";
 import useFullScreen from "@toluade/use-fullscreen";
@@ -12,8 +13,9 @@ const Stopwatch = () => {
     <div
       id="stopwatch-container"
       onDoubleClick={(e) => toggleFullScreen(e)}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
+      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none dot-bg"
     >
+      <RadialGradient />
       <StopwatchTime
         milliseconds={timeObj.hu}
         minutes={timeObj.m}
@@ -23,7 +25,7 @@ const Stopwatch = () => {
         containerClass={"number"}
       />
 
-      <div className="flex w-full justify-around scale-50 fixed bottom-2  tall:scale-100">
+      <div className="flex w-full justify-around scale-50 fixed bottom-4  tall:scale-100">
         <button
           disabled={stopwatch === 0}
           onClick={resetTimer}
