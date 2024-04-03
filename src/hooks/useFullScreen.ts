@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
@@ -51,7 +51,7 @@ function useFullScreen(containerId: string) {
     }
   };
 
-  const toggleFullScreen = (e: MouseEvent | null = null) => {
+  function toggleFullScreen(e: MouseEvent | null = null) {
     if (e !== null) {
       e.stopPropagation();
     }
@@ -60,7 +60,7 @@ function useFullScreen(containerId: string) {
     } else {
       fullScreenMode();
     }
-  };
+  }
 
   function isScreenLockSupported() {
     return "wakeLock" in navigator;
