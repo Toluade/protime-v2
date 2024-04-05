@@ -1701,6 +1701,13 @@
   dependencies:
     react "^18.2.0"
 
+"@toluade/use-window-inactivity@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@toluade/use-window-inactivity/-/use-window-inactivity-0.0.2.tgz#7db170c4427df6531aa302720d37636825854ae8"
+  integrity sha512-r9BvRlOcbw1qe4KlzJuYGOIjKZ+7LAP6SckCKBepg0mIkEu8bnPTO2+TbCDvKGYQ0W9uqOROUgYD/pn+Rgsi0Q==
+  dependencies:
+    react "^18.2.0"
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.5.tgz#3df15f27ba85319caa07ba08d0721889bb39c017"
