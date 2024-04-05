@@ -12,6 +12,7 @@ import MoonIcon from "@/icons/MoonIcon";
 import ArrowPointingIn from "@/icons/ArrowsPointingIn";
 import ArrowPointingOut from "@/icons/ArrowsPointingOut";
 import useFullScreen from "@toluade/use-fullscreen";
+import useWindowInactivity from "@/hooks/useWindowInactivity";
 
 type Props = {
   children: ReactNode;
@@ -22,6 +23,7 @@ const Layout = (props: Props) => {
   const { pathname } = useCurrentPath();
   const scheme = useColorScheme();
   const screen = useFullScreen("root");
+  const inactive = useWindowInactivity();
   const currentTitle = ROUTES?.filter((item) => item.path === pathname)[0]
     ?.title;
   const options = ROUTES?.filter((item) => item.title !== "Home")?.map(
@@ -35,7 +37,12 @@ const Layout = (props: Props) => {
     goto(value);
   };
   return (
-    <div className={twMerge("h-svh w-svw flex justify-center items-center")}>
+    <div
+      className={twMerge(
+        "h-svh w-svw flex justify-center items-center",
+        inactive && "cursor-none"
+      )}
+    >
       <div className="h-full w-full dot-bg">
         {/* Radial gradient for the container to give a faded look */}
         {props.children}
@@ -44,15 +51,21 @@ const Layout = (props: Props) => {
 
       <SelectComp
         triggerClass={twMerge(
-          "absolute top-3 left-3 neutral-gradient text-[10px] sm:text-sm",
-          screen.isFullScreen && "hidden"
+          "absolute top-3 left-3 neutral-gradient text-[10px] sm:text-sm duration-300 ease-in-out",
+          screen.isFullScreen && "hidden",
+          inactive ? "-translate-y-28" : "translate-y-0"
         )}
         placeholder={currentTitle}
         options={options}
         onValueChange={handleChange}
       />
 
-      <div className="flex items-center justify-end absolute top-3 right-3 gap-1 sm:gap-3">
+      <div
+        className={twMerge(
+          "flex items-center justify-end absolute top-3 right-3 gap-1 sm:gap-3 duration-300 ease-in-out",
+          inactive ? "-translate-y-28" : "translate-y-0"
+        )}
+      >
         <button
           title={
             scheme.isDarkMode ? "Switch to light mode" : "Switch to dark mode"

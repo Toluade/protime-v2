@@ -13,8 +13,10 @@ import { twMerge } from "tailwind-merge";
 import alarm from "@/assets/audio/alarm.mp3";
 import alarm2 from "@/assets/audio/alarm.ogg";
 import useFullScreen from "@toluade/use-fullscreen";
+import useWindowInactivity from "@/hooks/useWindowInactivity";
 
 function Selector() {
+  const inactive = useWindowInactivity();
   const [time, setTime] = useState({
     h: 0,
     m: 0,
@@ -134,7 +136,12 @@ function Selector() {
         }
       />
 
-      <div className="flex w-full justify-around scale-50 fixed bottom-4  tall:scale-100">
+      <div
+        className={twMerge(
+          "flex w-full justify-around scale-50 fixed bottom-4  tall:scale-100 duration-300 ease-in-out",
+          inactive ? "translate-y-36" : "translate-y-0"
+        )}
+      >
         <button
           disabled={stopped}
           onClick={stopTimer}

@@ -1,8 +1,10 @@
 import StopwatchTime from "@/components/StopwatchTime";
 import useStopwatch from "@/hooks/useStopwatch";
+import useWindowInactivity from "@/hooks/useWindowInactivity";
 import { twMerge } from "tailwind-merge";
 
 const Stopwatch = () => {
+  const inactive = useWindowInactivity();
   const { timeObj, started, stopwatch, resetTimer, toggleTimer, setStopwatch } =
     useStopwatch();
 
@@ -20,7 +22,12 @@ const Stopwatch = () => {
         containerClass={"number"}
       />
 
-      <div className="flex w-full justify-around scale-50 fixed bottom-4  tall:scale-100">
+      <div
+        className={twMerge(
+          "flex w-full justify-around scale-50 fixed bottom-4  tall:scale-100 duration-300 ease-in-out",
+          inactive ? "translate-y-36" : "translate-y-0"
+        )}
+      >
         <button
           disabled={stopwatch === 0}
           onClick={resetTimer}
