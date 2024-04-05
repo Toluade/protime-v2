@@ -33,7 +33,11 @@ const SelectComp = (props: SelectorProps) => (
         </Select.ScrollUpButton>
         <Select.Viewport className="p-[5px]">
           {props.options?.map((option, idx) => (
-            <SelectItem className="text-md" key={idx} value={option.value}>
+            <SelectItem
+              className="text-md neutral-gradient"
+              key={idx}
+              value={option.value}
+            >
               {option.label}
             </SelectItem>
           ))}

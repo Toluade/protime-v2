@@ -13,7 +13,6 @@ import { twMerge } from "tailwind-merge";
 import alarm from "@/assets/audio/alarm.mp3";
 import alarm2 from "@/assets/audio/alarm.ogg";
 import useFullScreen from "@toluade/use-fullscreen";
-import RadialGradient from "@/components/RadialGradient";
 
 function Selector() {
   const [time, setTime] = useState({
@@ -23,8 +22,7 @@ function Selector() {
   });
   const [milliseconds, setMilliseconds] = useState(0);
 
-  const { toggleFullScreen, isFullScreen, exitFullscreen } =
-    useFullScreen("timer-container");
+  const { isFullScreen, exitFullscreen } = useFullScreen("root");
 
   const {
     timeObj,
@@ -76,12 +74,10 @@ function Selector() {
   return (
     <div
       id="timer-container"
-      onDoubleClick={(e) => (stopped ? null : toggleFullScreen(e))}
       className={twMerge(
-        "flex flex-col justify-center items-center gap-10 h-svh w-svw select-none dot-bg"
+        "flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
       )}
     >
-      <RadialGradient />
       {timeUp && (
         <audio autoPlay muted={false} loop>
           <source src={alarm} type="audio/mpeg" />
@@ -91,7 +87,7 @@ function Selector() {
       <ReactIf
         condition={stopped}
         component={
-          <div className="flex items-center justify-center gap-5 overflow-hidden xs:gap-2 text-[12vw]  xl:text-[15vw]">
+          <div className="flex items-center justify-center gap-5 overflow-hidden xs:gap-2 text-[12vw]  xl:text-[15vw] [&>*]:neutral-gradient">
             <div className="flex items-center gap-1">
               <NumericSelector
                 value={time.h?.toString()}

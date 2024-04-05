@@ -60,6 +60,10 @@
   .dot-bg {
     @apply dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center;
   }
+
+  .inversed-dot-bg {
+    @apply bg-black dark:bg-white bg-dot-white/[0.2] dark:bg-dot-black/[0.2] relative flex items-center justify-center;
+  }
   .neutral-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500;
   }

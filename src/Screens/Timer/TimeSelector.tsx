@@ -4,7 +4,7 @@ const TimeSelector = () => {
   const hours = listOfNumbers(23);
   const mins = listOfNumbers(59);
   return (
-    <div className="grid grid-flow-col gap-[2ch] relative box-border">
+    <div className="grid grid-flow-col gap-[2ch] relative box-border [&>*]:neutral-gradient">
       <span title="Hour">
         {hours?.map((hr, idx) => <time key={idx}>{hr}</time>)}
       </span>

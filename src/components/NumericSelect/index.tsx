@@ -1,6 +1,7 @@
 import React, { ForwardedRef } from "react";
 import * as Select from "@radix-ui/react-select";
 import { ClassNameValue, twMerge } from "tailwind-merge";
+import RadialGradient from "../RadialGradient";
 // import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 
 type SelectorProps = Select.SelectProps & {
@@ -20,7 +21,7 @@ const NumericSelector = (props: SelectorProps) => (
       aria-label="Food"
     >
       <Select.Value placeholder={props.placeholder || "Select"} />
-      <Select.Icon className="">
+      <Select.Icon className="text-neutral-400">
         {/* <ChevronDownIcon /> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +40,8 @@ const NumericSelector = (props: SelectorProps) => (
       </Select.Icon>
     </Select.Trigger>
     <Select.Portal>
-      <Select.Content className="overflow-hidden rounded-md shadow-md bg-neutral-50 dark:bg-neutral-900">
+      <Select.Content className="overflow-hidden rounded-md shadow-md text-neutral-400 bg-neutral-50 dark:bg-neutral-900 dot-bg">
+        <RadialGradient />
         <Select.ScrollUpButton className="flex items-center justify-center h-[25px] cursor-default">
           {/* <ChevronUpIcon /> */}
           <svg

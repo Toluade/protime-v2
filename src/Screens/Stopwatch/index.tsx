@@ -1,21 +1,16 @@
-import RadialGradient from "@/components/RadialGradient";
 import StopwatchTime from "@/components/StopwatchTime";
 import useStopwatch from "@/hooks/useStopwatch";
-import useFullScreen from "@toluade/use-fullscreen";
 import { twMerge } from "tailwind-merge";
 
 const Stopwatch = () => {
-  const { toggleFullScreen } = useFullScreen("stopwatch-container");
   const { timeObj, started, stopwatch, resetTimer, toggleTimer, setStopwatch } =
     useStopwatch();
 
   return (
     <div
       id="stopwatch-container"
-      onDoubleClick={(e) => toggleFullScreen(e)}
-      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none dot-bg"
+      className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
     >
-      <RadialGradient />
       <StopwatchTime
         milliseconds={timeObj.hu}
         minutes={timeObj.m}
