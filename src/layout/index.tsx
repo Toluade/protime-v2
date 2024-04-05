@@ -12,7 +12,7 @@ import MoonIcon from "@/icons/MoonIcon";
 import ArrowPointingIn from "@/icons/ArrowsPointingIn";
 import ArrowPointingOut from "@/icons/ArrowsPointingOut";
 import useFullScreen from "@toluade/use-fullscreen";
-import useWindowInactivity from "@/hooks/useWindowInactivity";
+import useWindowInactivity from "@toluade/use-window-inactivity";
 
 type Props = {
   children: ReactNode;

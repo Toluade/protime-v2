@@ -1,6 +1,6 @@
 import StopwatchTime from "@/components/StopwatchTime";
 import useStopwatch from "@/hooks/useStopwatch";
-import useWindowInactivity from "@/hooks/useWindowInactivity";
+import useWindowInactivity from "@toluade/use-window-inactivity";
 import { twMerge } from "tailwind-merge";
 
 const Stopwatch = () => {

@@ -13,7 +13,7 @@ import { twMerge } from "tailwind-merge";
 import alarm from "@/assets/audio/alarm.mp3";
 import alarm2 from "@/assets/audio/alarm.ogg";
 import useFullScreen from "@toluade/use-fullscreen";
-import useWindowInactivity from "@/hooks/useWindowInactivity";
+import useWindowInactivity from "@toluade/use-window-inactivity";
 
 function Selector() {
   const inactive = useWindowInactivity();
