@@ -65,7 +65,7 @@
     @apply bg-black dark:bg-white bg-dot-white/[0.2] dark:bg-dot-black/[0.2] relative flex items-center justify-center;
   }
   .neutral-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-neutral-950 to-neutral-800 dark:from-neutral-100 dark:to-neutral-400;
   }
 }
 
