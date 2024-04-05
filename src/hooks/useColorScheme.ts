@@ -3,33 +3,25 @@ import { useEffect, useState } from "react";
 const useColorScheme = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const setDarkTheme = () => {
+  function setDarkTheme() {
     localStorage.setItem("theme", "dark");
     document.documentElement.classList.add("dark");
     setIsDarkMode(true);
 
     if (document) {
-      const themeMeta = <HTMLMetaElement>(
-        document.querySelector('meta[name="theme-color"]')
-      );
+      document.getElementById("dark-meta")!.setAttribute("content", "#000000");
+    } else return;
+  }
 
-      themeMeta.setAttribute("content", "#000000");
-    }
-  };
-
-  const setLightTheme = () => {
+  function setLightTheme() {
     localStorage.setItem("theme", "light");
     document.documentElement.classList.remove("dark");
     setIsDarkMode(false);
 
     if (document) {
-      const themeMeta = <HTMLMetaElement>(
-        document.querySelector('meta[name="theme-color"]')
-      );
-
-      themeMeta.setAttribute("content", "#ffffff");
-    }
-  };
+      document.getElementById("light-meta")!.setAttribute("content", "#ffffff");
+    } else return;
+  }
 
   useEffect(() => {
     if (
