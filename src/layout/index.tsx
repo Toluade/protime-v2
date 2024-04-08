@@ -86,7 +86,12 @@ const Layout = (props: Props) => {
         </button>
       </div>
 
-      <p className="absolute bottom-3 right-3 neutral-gradient text-[10px] sm:text-sm">
+      <p
+        className={twMerge(
+          "absolute bottom-3 right-3 neutral-gradient text-[10px] sm:text-sm duration-300",
+          inactive ? "translate-y-36" : "translate-y-0"
+        )}
+      >
         v{packageFile.version}
       </p>
     </div>
