@@ -22,7 +22,6 @@ const Time = ({
   containerClass,
 }: Props) => {
   useInterval(timerStarted, setCountDown);
-
   return (
     <div
       className={twMerge(

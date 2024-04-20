@@ -25,6 +25,9 @@
     /* Opera */
     /* -o-transform: scale(1.1, 1.35); */
   }
+  .numeric {
+    font-variant-numeric: tabular-nums;
+  }
 
   /* .time-input {
     width: fit-content;
@@ -37,18 +40,18 @@
   }
 
   .neutral-btn {
-    @apply border-none outline-none text-neutral-950 bg-neutral-200 dark:text-neutral-50 dark:bg-neutral-700 dark:bg-opacity-60 disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply border-none outline-none text-neutral-50 bg-neutral-700 dark:bg-opacity-60 disabled:opacity-40 disabled:cursor-not-allowed;
   }
 
   .start-btn {
-    @apply border-none outline-none text-green-900 bg-green-200 dark:text-green-400 dark:bg-green-900 dark:bg-opacity-60 disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply border-none outline-none text-green-400 bg-green-900 dark:bg-opacity-50 disabled:opacity-60 disabled:cursor-not-allowed;
   }
 
   .pause-btn {
-    @apply border-none outline-none text-amber-900 bg-amber-300 dark:text-amber-300 dark:bg-yellow-700 dark:bg-opacity-50 disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply border-none outline-none text-amber-300 bg-yellow-700 dark:bg-opacity-50 disabled:opacity-60 disabled:cursor-not-allowed;
   }
   .stop-btn {
-    @apply border-none outline-none text-red-900 bg-red-300 dark:text-red-300 dark:bg-red-700 dark:bg-opacity-30 disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply border-none outline-none text-red-200 bg-red-800 dark:bg-opacity-50 disabled:opacity-60 disabled:cursor-not-allowed;
   }
   .timer-font-size {
     @apply text-[25vw] sm:text-[27vw] md:text-[29vw] lg:text-[31vw] xl:text-[33vw];
@@ -59,6 +62,10 @@
 
   .dot-bg {
     @apply dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center;
+  }
+
+  .dotted-bg {
+    @apply dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2];
   }
 
   .inversed-dot-bg {

@@ -3,6 +3,7 @@ import * as React from "react";
 import { Navigate } from "react-router-dom";
 
 const Timer = lazy(() => import("@/Screens/Timer"));
+const TimerV2 = lazy(() => import("@/Screens/TimerV2"));
 const Stopwatch = lazy(() => import("@/Screens/Stopwatch"));
 const Clock = lazy(() => import("@/Screens/Clock"));
 
@@ -22,6 +23,11 @@ const ROUTES: Route[] = [
     path: "/timer",
     component: Timer,
     title: "Timer",
+  },
+  {
+    path: "/timer-v2",
+    component: TimerV2,
+    title: "Timer-v2",
   },
   {
     path: "/stopwatch",

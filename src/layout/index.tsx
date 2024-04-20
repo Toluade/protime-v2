@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import packageFile from "package.json";
 import { useCurrentPath } from "@/hooks/useCurrentPath";
-import RadialGradient from "@/components/RadialGradient";
+// import RadialGradient from "@/components/RadialGradient";
 import SunIcon from "@/icons/SunIcon";
 import useColorScheme from "@/hooks/useColorScheme";
 import MoonIcon from "@/icons/MoonIcon";
@@ -39,7 +39,7 @@ const Layout = (props: Props) => {
   return (
     <div
       className={twMerge(
-        "h-svh w-svw flex justify-center items-center",
+        "w-svw flex justify-center items-center",
         inactive && "cursor-none"
       )}
     >
@@ -47,7 +47,7 @@ const Layout = (props: Props) => {
         {/* Radial gradient for the container to give a faded look */}
         {props.children}
       </div>
-      <RadialGradient />
+      {/* <RadialGradient /> */}
 
       <SelectComp
         triggerClass={twMerge(
@@ -88,7 +88,7 @@ const Layout = (props: Props) => {
 
       <p
         className={twMerge(
-          "absolute bottom-3 right-3 neutral-gradient text-[10px] sm:text-sm duration-300",
+          "fixed bottom-3 right-3 neutral-gradient text-[10px] sm:text-sm duration-300",
           inactive ? "translate-y-36" : "translate-y-0"
         )}
       >

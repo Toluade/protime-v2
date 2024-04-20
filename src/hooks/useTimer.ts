@@ -55,7 +55,7 @@ const useTimer = (input: number) => {
   };
 };
 
-const getReturnValues = (countDown: number) => {
+export const getReturnValues = (countDown: number) => {
   // calculate time left
   //   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
   const h = Math.floor((countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -66,7 +66,7 @@ const getReturnValues = (countDown: number) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const zeroFormat = (obj: any) => {
+export const zeroFormat = (obj: any) => {
   const objVal = { ...obj };
 
   Object.keys(objVal).forEach(function (key) {
