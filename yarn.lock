@@ -1755,10 +1755,10 @@
   dependencies:
     "@swc/counter" "^0.1.3"
 
-"@toluade/protime-react-component@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@toluade/protime-react-component/-/protime-react-component-1.0.5.tgz#a8f5c5a6344e9c2618c9aaa99a56c6a51d561fe1"
-  integrity sha512-QwhY2lBJZ1aoe/S+lo5HAnRGFpvx55Ei0CqAwIGENQPlzgHJfgCToxBRvO4RAd6Kg0Zpo/gwIAi615Wox5yY0A==
+"@toluade/protime-react-component@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@toluade/protime-react-component/-/protime-react-component-1.1.3.tgz#2638b87abf2670a463ecad566b1dd2785914c043"
+  integrity sha512-Wn/OrjTArRjG14Ij/ABn33CO2wt8QooY87yYQ+EjJAkTkDIptmByo49gLNyq4z7fEyLOVZV++nG3QRfMhEl1/Q==
 
 "@toluade/use-fullscreen@^1.0.5":
   version "1.0.5"
@@ -1767,10 +1767,10 @@
   dependencies:
     react "^18.2.0"
 
-"@toluade/use-window-inactivity@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@toluade/use-window-inactivity/-/use-window-inactivity-0.0.2.tgz#7db170c4427df6531aa302720d37636825854ae8"
-  integrity sha512-r9BvRlOcbw1qe4KlzJuYGOIjKZ+7LAP6SckCKBepg0mIkEu8bnPTO2+TbCDvKGYQ0W9uqOROUgYD/pn+Rgsi0Q==
+"@toluade/use-window-inactivity@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@toluade/use-window-inactivity/-/use-window-inactivity-0.0.3.tgz#91b890aa4e83b57d12b8becbf64933f8b86cc1bc"
+  integrity sha512-QzbFGT22jCjD9ysfmupQ/2aIrHvT3HJwHA7Zj+rZ7YBiy9FOpH8+kwdi61A9NF9TmAmvLasZGf5u00rGXZV37Q==
   dependencies:
     react "^18.2.0"
 

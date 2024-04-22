@@ -7,6 +7,9 @@ const useWindowInactivity = () => {
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
+    timeout = setTimeout(() => {
+      setInactive(true);
+    }, 5000);
     events.forEach((event) =>
       window.addEventListener(event, () => {
         clearTimeout(timeout);

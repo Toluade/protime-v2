@@ -5,14 +5,14 @@ import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import packageFile from "package.json";
 import { useCurrentPath } from "@/hooks/useCurrentPath";
-// import RadialGradient from "@/components/RadialGradient";
+import RadialGradient from "@/components/RadialGradient";
 import SunIcon from "@/icons/SunIcon";
 import useColorScheme from "@/hooks/useColorScheme";
 import MoonIcon from "@/icons/MoonIcon";
 import ArrowPointingIn from "@/icons/ArrowsPointingIn";
 import ArrowPointingOut from "@/icons/ArrowsPointingOut";
 import useFullScreen from "@toluade/use-fullscreen";
-import useWindowInactivity from "@toluade/use-window-inactivity";
+import useWindowInactivity from "@/hooks/useWindowInactivity";
 
 type Props = {
   children: ReactNode;
@@ -21,9 +21,9 @@ type Props = {
 const Layout = (props: Props) => {
   const { goto } = useNavigation();
   const { pathname } = useCurrentPath();
+  const inactive = useWindowInactivity();
   const scheme = useColorScheme();
   const screen = useFullScreen("root");
-  const inactive = useWindowInactivity();
   const currentTitle = ROUTES?.filter((item) => item.path === pathname)[0]
     ?.title;
   const options = ROUTES?.filter((item) => item.title !== "Home")?.map(
@@ -36,6 +36,7 @@ const Layout = (props: Props) => {
   const handleChange = (value: string) => {
     goto(value);
   };
+
   return (
     <div
       className={twMerge(
@@ -47,7 +48,7 @@ const Layout = (props: Props) => {
         {/* Radial gradient for the container to give a faded look */}
         {props.children}
       </div>
-      {/* <RadialGradient /> */}
+      <RadialGradient />
 
       <SelectComp
         triggerClass={twMerge(
