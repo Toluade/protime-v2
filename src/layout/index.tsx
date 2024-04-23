@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import packageFile from "package.json";
 import { useCurrentPath } from "@/hooks/useCurrentPath";
-import RadialGradient from "@/components/RadialGradient";
+// import RadialGradient from "@/components/RadialGradient";
 import SunIcon from "@/icons/SunIcon";
 import useColorScheme from "@/hooks/useColorScheme";
 import MoonIcon from "@/icons/MoonIcon";
@@ -48,7 +48,7 @@ const Layout = (props: Props) => {
         {/* Radial gradient for the container to give a faded look */}
         {props.children}
       </div>
-      <RadialGradient />
+      {/* <RadialGradient /> */}
 
       <SelectComp
         triggerClass={twMerge(
