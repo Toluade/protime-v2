@@ -27,7 +27,7 @@ const Subtext = ({
     else return text;
   };
   return (
-    <div className="flex justify-between items-center gap-2">
+    <div className="flex justify-start items-center gap-2">
       <p className={twMerge("text-md neutral-gradient", containerClass)}>
         {trim(time?.h) && <span>{trim(time?.h)} hr, </span>}
         {trim(time?.m) && (

@@ -19,11 +19,11 @@ const RecentTimer = ({ milliseconds, containerClass, onClick }: Props) => {
   return (
     <div
       className={twMerge(
-        "flex flex-col items-start gap-1 px-4 pt-2 pb-1 w-full border-y border-y-neutral-200 dark:border-y-neutral-800",
+        "flex justify-between items-center gap-1 px-4 pt-2 pb-1 w-full border-y border-y-neutral-200 dark:border-y-neutral-800",
         containerClass
       )}
     >
-      <div className="flex justify-between items-center  w-full pr-3">
+      <div className="flex flex-col gap-1">
         <Time
           {...{
             hours: timeObj.h,
@@ -32,15 +32,15 @@ const RecentTimer = ({ milliseconds, containerClass, onClick }: Props) => {
           }}
           containerClass="opacity-40"
         />
-        <PlayButton onClick={() => onClick()} />
+        <Subtext
+          {...{
+            milliseconds: milliseconds?.time,
+            onDelete: () => removeTimer(milliseconds),
+          }}
+          containerClass="opacity-40"
+        />
       </div>
-      <Subtext
-        {...{
-          milliseconds: milliseconds?.time,
-          onDelete: () => removeTimer(milliseconds),
-        }}
-        containerClass="opacity-40"
-      />
+      <PlayButton onClick={() => onClick()} />
     </div>
   );
 };

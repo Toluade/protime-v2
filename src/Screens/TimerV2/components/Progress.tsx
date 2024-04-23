@@ -63,9 +63,9 @@ const Progress = ({
         className="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
       >
         {timerStarted ? (
-          <PauseIcon className="fill-amber-500 dark:fill-yellow-700 w-8 h-8 sm:w-10 sm:h-10 cursor-pointer" />
+          <PauseIcon className="fill-amber-500 dark:fill-yellow-700 w-7 h-7 sm:w-9 sm:h-9 cursor-pointer" />
         ) : (
-          <PlayIcon className="fill-amber-500 dark:fill-yellow-700 w-8 h-8 sm:w-10 sm:h-10 cursor-pointer" />
+          <PlayIcon className="fill-amber-500 dark:fill-yellow-700 w-7 h-7 sm:w-9 sm:h-9 cursor-pointer" />
         )}
       </div>
     </div>

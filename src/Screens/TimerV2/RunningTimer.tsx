@@ -102,49 +102,47 @@ const RunningTimer = ({ milliseconds, containerClass }: Props) => {
       )}
       <div
         className={twMerge(
-          "flex flex-col items-start gap-1 px-4 pt-2 pb-1 w-full border-y border-y-neutral-200 dark:border-y-neutral-800",
+          "flex justify-between items-center gap-1 px-4 pt-2 pb-1 w-full border-y border-y-neutral-200 dark:border-y-neutral-800",
           containerClass
         )}
       >
-        <div className="flex justify-between items-center  w-full pr-3">
-          <div className="">
-            <DialogDemo
-              trigger={
-                <Time
-                  {...{
-                    hours: timeObj.h,
-                    minutes: timeObj.m,
-                    seconds: timeObj.s,
-                    containerClass: "[&>*]:neutral-gradient",
-                  }}
-                />
-              }
-              content={
-                <FullscreenTime
-                  {...{
-                    hours: timeObj.h,
-                    minutes: timeObj.m,
-                    seconds: timeObj.s,
-                  }}
-                />
-              }
-            />
-          </div>
-          <Progress
+        <div className="flex flex-col gap-1">
+          <DialogDemo
+            trigger={
+              <Time
+                {...{
+                  hours: timeObj.h,
+                  minutes: timeObj.m,
+                  seconds: timeObj.s,
+                  containerClass: "[&>*]:neutral-gradient",
+                }}
+              />
+            }
+            content={
+              <FullscreenTime
+                {...{
+                  hours: timeObj.h,
+                  minutes: timeObj.m,
+                  seconds: timeObj.s,
+                }}
+              />
+            }
+          />
+          <Subtext
             {...{
-              countDown: countDown,
               milliseconds: milliseconds?.duration,
-              timerStarted: started,
-              stopped,
-              toggleTimer: progressControl,
+              onDelete: () => removeTimer(milliseconds),
+              onReset: reset,
             }}
           />
         </div>
-        <Subtext
+        <Progress
           {...{
+            countDown: countDown,
             milliseconds: milliseconds?.duration,
-            onDelete: () => removeTimer(milliseconds),
-            onReset: reset,
+            timerStarted: started,
+            stopped,
+            toggleTimer: progressControl,
           }}
         />
       </div>
