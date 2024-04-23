@@ -6,6 +6,7 @@ import { useTimerStore } from "@/store/timerStore";
 
 import { useRunningTimerStore } from "@/store/runningTimers";
 import { sortTimers } from "@/utils";
+import RadialGradient from "@/components/RadialGradient";
 
 const TimerV2 = () => {
   const runningTimers = useRunningTimerStore((state) => state.runningTimers);
@@ -32,13 +33,14 @@ const TimerV2 = () => {
           "flex justify-center items-center"
       )}
     >
+      <RadialGradient />
       <Selector runTimer={runTimer} />
       <div className={twMerge("mx-auto pt-10 max-w-full sm:max-w-[500px]")}>
         {/* Timers */}
         {runningTimers?.length > 0 && (
           <div className="mt-10 px-2 animate-fade-in duration-300">
             <h2 className="font-bold text-lg neutral-gradient">Timers</h2>
-            {runningTimers?.map((time) => (
+            {sortTimers(runningTimers, "desc")?.map((time) => (
               <TimerListItem
                 key={time?.id}
                 milliseconds={time}

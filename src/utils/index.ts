@@ -9,19 +9,20 @@ export const sortTimers = (
   timers: RunningTime[] | RecentTimer[],
   dir: "asc" | "desc"
 ) => {
+  let newArray;
   if (dir === "asc") {
-    const newArray = timers?.sort((a, b) => {
+    newArray = timers?.sort((a, b) => {
       if (a.id > b.id) return 1;
       else if (a.id < b.id) return -1;
       else return 0;
     });
-    return newArray;
   } else if (dir === "desc") {
-    const newArray = timers?.sort((a, b) => {
+    newArray = timers?.sort((a, b) => {
       if (a.id < b.id) return 1;
       else if (a.id > b.id) return -1;
       else return 0;
     });
-    return newArray;
   }
+
+  return newArray as RunningTime[];
 };
