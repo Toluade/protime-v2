@@ -1,3 +1,4 @@
+import RadialGradient from "@/components/RadialGradient";
 import StopwatchTime from "@/components/StopwatchTime";
 import useStopwatch from "@/hooks/useStopwatch";
 import useWindowInactivity from "@/hooks/useWindowInactivity";
@@ -13,6 +14,7 @@ const Stopwatch = () => {
       id="stopwatch-container"
       className="flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
     >
+      <RadialGradient />
       <StopwatchTime
         milliseconds={timeObj.hu}
         minutes={timeObj.m}

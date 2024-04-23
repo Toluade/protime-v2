@@ -14,6 +14,7 @@ import alarm from "@/assets/audio/alarm.mp3";
 import alarm2 from "@/assets/audio/alarm.ogg";
 import useFullScreen from "@toluade/use-fullscreen";
 import useWindowInactivity from "@/hooks/useWindowInactivity";
+import RadialGradient from "@/components/RadialGradient";
 
 function Selector() {
   const inactive = useWindowInactivity();
@@ -80,6 +81,7 @@ function Selector() {
         "flex flex-col justify-center items-center gap-10 h-svh w-svw select-none"
       )}
     >
+      <RadialGradient />
       {timeUp && (
         <audio autoPlay muted={false} loop>
           <source src={alarm} type="audio/mpeg" />

@@ -1,3 +1,4 @@
+import RadialGradient from "@/components/RadialGradient";
 import useClock from "@/hooks/useClock";
 import { twMerge } from "tailwind-merge";
 
@@ -10,6 +11,7 @@ const Clock = () => {
         "flex flex-col justify-center items-center gap-10 h-svh w-svw select-none clock-font-size"
       )}
     >
+      <RadialGradient />
       <p className="number neutral-gradient">{time}</p>
     </div>
   );
